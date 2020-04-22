@@ -26,3 +26,13 @@ JSTweener.addTween(element.style, {
   top: 300
 });
 ```
+
+## Live demos
+
+- [Transitions](https://valera-rozuvan.github.io/JSTweener/examples/transitions.html)
+- [Motion typo](https://valera-rozuvan.github.io/JSTweener/examples/motion_typo.html)
+- [Motion typo bezier](https://valera-rozuvan.github.io/JSTweener/examples/motion_typo_bezier.html)
+
+## License
+
+See license information [here](LICENSE).
