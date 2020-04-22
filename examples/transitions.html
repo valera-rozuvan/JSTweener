@@ -1,0 +1,130 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <title>JSTweener Example - Transitoins</title>
+    <script language="JavaScript" src="../jstweener.js"></script>
+    <script language="JavaScript">
+      function getTime() {
+        return document.getElementById('time').value;
+      };
+      function getTranstion() {
+        return document.getElementById('transition').value;
+      };
+      function move1() {
+        JSTweener.addTween(square.style, {
+            time: getTime(),
+            transition: getTranstion(),
+            onComplete: move2,
+            left: 400
+        });
+      }
+      function move2() {
+        JSTweener.addTween(square.style, {
+            time: getTime(),
+            transition: getTranstion(),
+            onComplete: move3,
+            top: 300
+        });
+      }
+      function move3() {
+        JSTweener.addTween(square.style, {
+            time: getTime(),
+            transition: getTranstion(),
+            onComplete: move4,
+            left: 100
+        });
+      }
+      function move4() {
+        JSTweener.addTween(square.style, {
+            time: getTime(),
+            transition: getTranstion(),
+            onComplete: move1,
+            top: 100
+        });
+      }
+    </script>
+    <style type="text/css">
+      body {
+        color: #FFFFFF;
+        background-color: #000000;
+      }
+      #square {
+        background-color: #FF0000;
+        border:1px solid #FFAA00;
+        position:absolute;
+        width:30;
+        height:30;
+        top:100px;
+        left:100px;
+      }
+
+      #border {
+        border:1px solid #555555;
+        position:absolute;
+        width:332;
+        height:232;
+        top:99px;
+        left:99px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>JSTweener Example - Transitoins</h1>
+    <p>
+      <label for="time">Time:</label> <input id="time" size="4" type="text" value="1"></input>
+      <a href="https://web.archive.org/web/20120529102719/http://hosted.zeh.com.br/tweener/docs/en-us/misc/transitions.html">transition</a>:
+      <select id="transition">
+        <option value="linear">linear</options>
+        <option value="easeInQuad">easeInQuad</options>
+        <option value="easeOutQuad">easeOutQuad</options>
+        <option value="easeInOutQuad">easeInOutQuad</options>
+        <option value="easeInCubic">easeInCubic</options>
+        <option value="easeOutCubic">easeOutCubic</options>
+        <option value="easeInOutCubic">easeInOutCubic</options>
+        <option value="easeOutInCubic">easeOutInCubic</options>
+        <option value="easeInQuart">easeInQuart</options>
+        <option value="easeOutQuart">easeOutQuart</options>
+        <option value="easeInOutQuart">easeInOutQuart</options>
+        <option value="easeOutInQuart">easeOutInQuart</options>
+        <option value="easeInQuint">easeInQuint</options>
+        <option value="easeOutQuint">easeOutQuint</options>
+        <option value="easeInOutQuint">easeInOutQuint</options>
+        <option value="easeOutInQuint">easeOutInQuint</options>
+        <option value="easeInSine">easeInSine</options>
+        <option value="easeOutSine">easeOutSine</options>
+        <option value="easeInOutSine">easeInOutSine</options>
+        <option value="easeOutInSine">easeOutInSine</options>
+        <option value="easeInExpo">easeInExpo</options>
+        <option value="easeOutExpo">easeOutExpo</options>
+        <option value="easeInOutExpo">easeInOutExpo</options>
+        <option value="easeOutInExpo">easeOutInExpo</options>
+        <option value="easeInCirc">easeInCirc</options>
+        <option value="easeOutCirc">easeOutCirc</options>
+        <option value="easeInOutCirc">easeInOutCirc</options>
+        <option value="easeOutInCirc">easeOutInCirc</options>
+        <option value="easeInElastic">easeInElastic</options>
+        <option value="easeOutElastic">easeOutElastic</options>
+        <option value="easeInOutElastic">easeInOutElastic</options>
+        <option value="easeOutInElastic">easeOutInElastic</options>
+        <option value="easeInBack">easeInBack</options>
+        <option value="easeOutBack">easeOutBack</options>
+        <option value="easeInOutBack">easeInOutBack</options>
+        <option value="easeOutInBack">easeOutInBack</options>
+        <option value="easeInBounce">easeInBounce</options>
+        <option value="easeOutBounce">easeOutBounce</options>
+        <option value="easeInOutBounce">easeInOutBounce</options>
+        <option value="easeOutInBounce">easeOutInBounce</options>
+      </select>
+    </p>
+    <div id="square">&nbsp;</div>
+    <div id="border">&nbsp;</div>
+    <script language="JavaScript">
+      var square = document.getElementById('square');
+      square.style.top = 100;
+      square.style.left= 100;
+      move1();
+    </script>
+  </body>
+</html>

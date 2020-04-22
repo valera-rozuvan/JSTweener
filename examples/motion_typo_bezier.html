@@ -1,0 +1,157 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <title>JSTweener Example - Motion Typo bezier</title>
+    <script language="JavaScript" src="../jstweener.js"></script>
+    <style type="text/css">
+      body {
+        color: #FFFFFF;
+        background-color: #000000;
+      }
+
+      * {
+       margin:0;
+       pading: 0;
+      }
+
+      #content {
+        position:absolute;
+        top: 10px;
+        left:10px;
+      }
+
+      body {
+          overflow: hidden;
+      }
+
+      .alpha5 {
+          filter:alpha(opacity=50);
+          opacity: 0.5;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="content">Yuichi Tateno. hotchpotch@N0!spam@gmail.com<br>
+      http://rails2u.com/<br>
+      <br>
+      The MIT License<br>
+      --------<br>
+      Copyright (c) 2007 Yuichi Tateno.<br>
+      <br>
+      Permission is hereby granted, free of charge, to any person obtaining a copy<br>
+      of this software and associated documentation files (the "Software"), to deal<br>
+      in the Software without restriction, including without limitation the rights<br>
+      to use, copy, modify, merge, publish, distribute, sublicense, and/or sell<br>
+      copies of the Software, and to permit persons to whom the Software is<br>
+      furnished to do so, subject to the following conditions:<br>
+      <br>
+      The above copyright notice and this permission notice shall be included in<br>
+      all copies or substantial portions of the Software.<br>
+      <br>
+      THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR<br>
+      IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,<br>
+      FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE<br>
+      AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER<br>
+      LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,<br>
+      OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN<br>
+      THE SOFTWARE.<br>
+    </p>
+
+    <script>
+      var content = document.getElementById('content');
+      var bWidth = document.getElementsByTagName("body")[0].clientWidth;
+      var bHeight = document.getElementsByTagName("body")[0].clientHeight;
+
+      var n16 = function(num) {
+          var str = (parseInt(num, 10)).toString(16);
+          return str.length == 2 ? str : '0' + str;
+      }
+      var randomColor = function() {
+          var r = n16(Math.random() * 128 + 127);
+          var g = n16(Math.random() * 128 + 127);
+          var b = n16(Math.random() * 128 + 127);
+          return '#' + r + g + b;
+      };
+
+      var motion = function(c) {
+          var el = document.createElement('span');
+          el.innerHTML = c;
+          el.style.position = 'absolute';
+          el.style.top = '10px';
+          el.style.left = '10px';
+          el.style.fontFamily = 'times';
+          if (Math.random() < 0.5) {
+              el.style.color = '#000000';
+              el.className = 'alpha5';
+              el.style.backgroundColor = randomColor();
+              el.style.paddingTop = 30;
+              el.style.paddingLeft = 30;
+              el.style.paddingRight = 10;
+          } else {
+              el.style.color = randomColor();
+          }
+
+
+          document.body.appendChild(el);
+          var tm =  2.5 + Math.random() * 3;
+
+          /*
+          JSTweener.addTween(el.style, {
+            time: tm,
+            transition: 'easeOutBounce',
+            top: Math.random() * (bHeight - 100),
+            left: bWidth - 80
+          });
+          */
+
+          var o = {y:10};
+          var x = bWidth;
+          var y = Math.random() * (bHeight * 2- 100);
+          JSTweener.addTween(o, {
+            time: tm,
+            transition: 'linear',
+            onUpdate: function(el, bezeirXPoint) {
+                /*
+                var now = (new Date() - 0);
+                var t = now - this.startTime;
+                var d = this.endTime - this.startTime;
+                */
+                var _x = JSTweener.Utils.bezier2(Math.min(((new Date() - 0)-this.startTime)/(this.endTime-this.startTime), 1), 10, bezeirXPoint, -100);
+
+                el.style.left = _x;
+                el.style.top = this.target.y;
+            },
+            onComplete: function() {
+                document.body.removeChild(el);
+            },
+            onUpdateParams: [el, bWidth * (1 + Math.random() * 1)],
+            'y':y
+          });
+
+          el.style.fontSize = '10pt';
+          JSTweener.addTween(el.style, {
+            time: tm,
+            //transition: 'easeOutElastic',
+            transition: 'easeOutQuint',
+            fontSize: 10 +  Math.random() * 40,
+            suffix: {
+                fontSize: 'pt'
+            }
+          });
+      };
+
+      var f = function() {
+        if(content.innerHTML.length > 0) {
+          var str = content.innerHTML;
+          var c = str.slice(0, 1);
+          if(c != ' ') motion(c);
+          content.innerHTML = str.slice(1);
+          setTimeout(f, 50);
+        }
+      }
+      setTimeout(f, 50);
+    </script>
+  </body>
+</html>
