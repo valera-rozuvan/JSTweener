@@ -11,6 +11,12 @@ Yuichi Tateno (secondlife)
 
 A public git repo is available at [git.rozuvan.net/JSTweener](https://git.rozuvan.net/JSTweener). Several mirrors exist: [mirror 1](https://github.com/valera-rozuvan/JSTweener), [mirror 2](https://gitlab.com/valera-rozuvan/JSTweener).
 
+You can get a local copy by running the command:
+
+```
+git clone https://git.rozuvan.net/JSTweener
+```
+
 ## about
 
 JSTweener is a tween library for JavaScript. JSTweener's API is like [Tweener](https://code.google.com/archive/p/tweener/) ([archive link](https://web.archive.org/web/20110714013056/http://code.google.com/p/tweener/)).
