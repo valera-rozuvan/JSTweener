@@ -1,23 +1,15 @@
 # JSTweener
 
-JavaScript Tweener for Animation. Originally by Yuichi Tateno.
+javascript tweener for animation
+
+## about
+
+Originally created by Yuichi Tateno.
 
 ```
 Yuichi Tateno (secondlife)
 <hotchpotch@N0!spam@gmail.com> | https://github.com/hotchpotch | http://rails2u.com/
 ```
-
-## getting latest source
-
-A public git repo is available at [git.rozuvan.net/JSTweener](https://git.rozuvan.net/JSTweener). Several mirrors exist: [mirror 1](https://github.com/valera-rozuvan/JSTweener), [mirror 2](https://gitlab.com/valera-rozuvan/JSTweener).
-
-You can get a local copy by running the command:
-
-```
-git clone https://git.rozuvan.net/JSTweener
-```
-
-## about
 
 JSTweener is a tween library for JavaScript. JSTweener's API is like [Tweener](https://code.google.com/archive/p/tweener/) ([archive link](https://web.archive.org/web/20110714013056/http://code.google.com/p/tweener/)).
 
@@ -43,10 +35,21 @@ JSTweener.addTween(element.style, {
 - [Motion typo](https://valera-rozuvan.github.io/JSTweener/examples/motion_typo.html)
 - [Motion typo bezier](https://valera-rozuvan.github.io/JSTweener/examples/motion_typo_bezier.html)
 
+---
+
 ## license
 
-This project is licensed under the MIT License. See [LICENSE](./LICENSE) for more details.
+The project `'JSTweener'` is licensed under the MIT License.
 
-## maintainers
+See [LICENSE](./LICENSE) for more details.
 
-- [Valera Rozuvan](https://valera.rozuvan.net/)
+The latest source code can be retrieved from one of several mirrors:
+
+1. [github.com/valera-rozuvan/JSTweener](https://github.com/valera-rozuvan/JSTweener)
+
+2. [gitlab.com/valera-rozuvan/JSTweener](https://gitlab.com/valera-rozuvan/JSTweener)
+
+3. [git.rozuvan.net/JSTweener](https://git.rozuvan.net/JSTweener)
+
+Copyright (c) 2013-2022 [Valera Rozuvan](https://valera.rozuvan.net/)
+Copyright (c) 2007 [Yuichi Tateno](https://github.com/hotchpotch)
