@@ -52,4 +52,5 @@ The latest source code can be retrieved from one of several mirrors:
 3. [git.rozuvan.net/JSTweener](https://git.rozuvan.net/JSTweener)
 
 Copyright (c) 2013-2022 [Valera Rozuvan](https://valera.rozuvan.net/)
+
 Copyright (c) 2007 [Yuichi Tateno](https://github.com/hotchpotch)
