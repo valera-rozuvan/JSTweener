@@ -31,9 +31,13 @@ JSTweener.addTween(element.style, {
 
 ## live demo
 
+With the help of GitHub pages, you can find a live version of the following 3 examples:
+
 - [Transitions](https://valera-rozuvan.github.io/JSTweener/examples/transitions.html)
 - [Motion typo](https://valera-rozuvan.github.io/JSTweener/examples/motion_typo.html)
 - [Motion typo bezier](https://valera-rozuvan.github.io/JSTweener/examples/motion_typo_bezier.html)
+
+Source code lives in [examples](./examples) sub-directory of this project.
 
 ---
 
